@@ -28,58 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.title = new System.Windows.Forms.Label();
-            this.calcGWATotalPanel = new System.Windows.Forms.Panel();
             this.txtBoxUnit = new System.Windows.Forms.TextBox();
             this.txtBoxGrade = new System.Windows.Forms.TextBox();
             this.txtBoxSubject = new System.Windows.Forms.TextBox();
             this.calcGWAPanel = new System.Windows.Forms.Panel();
+            this.clrAllButton = new System.Windows.Forms.Button();
+            this.displayGWA = new System.Windows.Forms.TextBox();
             this.clearSubButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.calcGWAButton = new System.Windows.Forms.Button();
             this.addSubjButton = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.calcGWAYear = new System.Windows.Forms.GroupBox();
             this.calcGWAPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // title
-            // 
-            this.title.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.title.AutoSize = true;
-            this.title.Cursor = System.Windows.Forms.Cursors.Default;
-            this.title.Enabled = false;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.ForeColor = System.Drawing.Color.Black;
-            this.title.Location = new System.Drawing.Point(398, 33);
-            this.title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(662, 58);
-            this.title.TabIndex = 0;
-            this.title.Text = "Calculate your GWA here 👇\r\n";
-            this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // calcGWATotalPanel
-            // 
-            this.calcGWATotalPanel.BackColor = System.Drawing.Color.Silver;
-            this.calcGWATotalPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.calcGWATotalPanel.Location = new System.Drawing.Point(895, 121);
-            this.calcGWATotalPanel.Name = "calcGWATotalPanel";
-            this.calcGWATotalPanel.Size = new System.Drawing.Size(397, 555);
-            this.calcGWATotalPanel.TabIndex = 2;
-            this.calcGWATotalPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.calcGWATotalPanel_Paint);
             // 
             // txtBoxUnit
             // 
             this.txtBoxUnit.BackColor = System.Drawing.Color.White;
             this.txtBoxUnit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxUnit.ForeColor = System.Drawing.Color.LightGray;
             this.txtBoxUnit.Location = new System.Drawing.Point(243, 63);
             this.txtBoxUnit.Name = "txtBoxUnit";
             this.txtBoxUnit.Size = new System.Drawing.Size(188, 30);
             this.txtBoxUnit.TabIndex = 3;
-            this.txtBoxUnit.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtBoxUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxUnit.TextChanged += new System.EventHandler(this.txtBoxUnit_TextChanged);
             this.txtBoxUnit.Enter += new System.EventHandler(this.txtBoxUnit_Enter);
             this.txtBoxUnit.Leave += new System.EventHandler(this.txtBoxUnit_Leave);
             // 
@@ -87,11 +63,13 @@
             // 
             this.txtBoxGrade.BackColor = System.Drawing.Color.White;
             this.txtBoxGrade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxGrade.ForeColor = System.Drawing.Color.LightGray;
             this.txtBoxGrade.Location = new System.Drawing.Point(462, 63);
             this.txtBoxGrade.Name = "txtBoxGrade";
             this.txtBoxGrade.Size = new System.Drawing.Size(188, 30);
             this.txtBoxGrade.TabIndex = 4;
-            this.txtBoxGrade.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtBoxGrade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxGrade.TextChanged += new System.EventHandler(this.txtBoxGrade_TextChanged);
             this.txtBoxGrade.Enter += new System.EventHandler(this.txtBoxGrade_Enter);
             this.txtBoxGrade.Leave += new System.EventHandler(this.txtBoxGrade_Leave);
             // 
@@ -104,7 +82,8 @@
             this.txtBoxSubject.Name = "txtBoxSubject";
             this.txtBoxSubject.Size = new System.Drawing.Size(188, 30);
             this.txtBoxSubject.TabIndex = 5;
-            this.txtBoxSubject.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtBoxSubject.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBoxSubject.TextChanged += new System.EventHandler(this.txtBoxSubject_TextChanged);
             this.txtBoxSubject.Enter += new System.EventHandler(this.txtBoxSubject_Enter);
             this.txtBoxSubject.Leave += new System.EventHandler(this.txtBoxSubject_Leave);
             // 
@@ -112,6 +91,8 @@
             // 
             this.calcGWAPanel.BackColor = System.Drawing.Color.Silver;
             this.calcGWAPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.calcGWAPanel.Controls.Add(this.clrAllButton);
+            this.calcGWAPanel.Controls.Add(this.displayGWA);
             this.calcGWAPanel.Controls.Add(this.clearSubButton);
             this.calcGWAPanel.Controls.Add(this.label3);
             this.calcGWAPanel.Controls.Add(this.label2);
@@ -127,16 +108,43 @@
             this.calcGWAPanel.TabIndex = 6;
             this.calcGWAPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.calcGWAPanel_Paint);
             // 
+            // clrAllButton
+            // 
+            this.clrAllButton.BackColor = System.Drawing.Color.Red;
+            this.clrAllButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clrAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clrAllButton.ForeColor = System.Drawing.Color.Black;
+            this.clrAllButton.Location = new System.Drawing.Point(698, 503);
+            this.clrAllButton.Name = "clrAllButton";
+            this.clrAllButton.Size = new System.Drawing.Size(103, 38);
+            this.clrAllButton.TabIndex = 13;
+            this.clrAllButton.Text = "CLEAR";
+            this.clrAllButton.UseVisualStyleBackColor = false;
+            this.clrAllButton.Click += new System.EventHandler(this.clrAllButton_Click);
+            // 
+            // displayGWA
+            // 
+            this.displayGWA.BackColor = System.Drawing.Color.White;
+            this.displayGWA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.displayGWA.Cursor = System.Windows.Forms.Cursors.Default;
+            this.displayGWA.Location = new System.Drawing.Point(400, 509);
+            this.displayGWA.Name = "displayGWA";
+            this.displayGWA.ReadOnly = true;
+            this.displayGWA.Size = new System.Drawing.Size(284, 30);
+            this.displayGWA.TabIndex = 12;
+            this.displayGWA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.displayGWA.TextChanged += new System.EventHandler(this.displayGWA_TextChanged);
+            // 
             // clearSubButton
             // 
             this.clearSubButton.BackColor = System.Drawing.Color.Red;
             this.clearSubButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearSubButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearSubButton.Location = new System.Drawing.Point(677, 63);
+            this.clearSubButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearSubButton.Location = new System.Drawing.Point(674, 63);
             this.clearSubButton.Name = "clearSubButton";
-            this.clearSubButton.Size = new System.Drawing.Size(111, 30);
+            this.clearSubButton.Size = new System.Drawing.Size(127, 30);
             this.clearSubButton.TabIndex = 11;
-            this.clearSubButton.Text = "CLEAR";
+            this.clearSubButton.Text = "REMOVE";
             this.clearSubButton.UseVisualStyleBackColor = false;
             this.clearSubButton.Click += new System.EventHandler(this.clearSubButton_Click);
             // 
@@ -173,9 +181,10 @@
             // 
             this.calcGWAButton.BackColor = System.Drawing.Color.Chartreuse;
             this.calcGWAButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.calcGWAButton.Location = new System.Drawing.Point(414, 503);
+            this.calcGWAButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calcGWAButton.Location = new System.Drawing.Point(214, 503);
             this.calcGWAButton.Name = "calcGWAButton";
-            this.calcGWAButton.Size = new System.Drawing.Size(266, 38);
+            this.calcGWAButton.Size = new System.Drawing.Size(170, 38);
             this.calcGWAButton.TabIndex = 7;
             this.calcGWAButton.Text = "Calculate GWA";
             this.calcGWAButton.UseVisualStyleBackColor = false;
@@ -185,13 +194,35 @@
             // 
             this.addSubjButton.BackColor = System.Drawing.Color.MediumTurquoise;
             this.addSubjButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addSubjButton.Location = new System.Drawing.Point(113, 503);
+            this.addSubjButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addSubjButton.Location = new System.Drawing.Point(27, 503);
             this.addSubjButton.Name = "addSubjButton";
-            this.addSubjButton.Size = new System.Drawing.Size(266, 38);
+            this.addSubjButton.Size = new System.Drawing.Size(170, 38);
             this.addSubjButton.TabIndex = 6;
             this.addSubjButton.Text = "Add Subject";
             this.addSubjButton.UseVisualStyleBackColor = false;
             this.addSubjButton.Click += new System.EventHandler(this.addSubjButton_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(405, 37);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(662, 58);
+            this.lblTitle.TabIndex = 7;
+            this.lblTitle.Text = "Calculate your GWA here 👇";
+            // 
+            // calcGWAYear
+            // 
+            this.calcGWAYear.BackColor = System.Drawing.Color.White;
+            this.calcGWAYear.Location = new System.Drawing.Point(880, 114);
+            this.calcGWAYear.Name = "calcGWAYear";
+            this.calcGWAYear.Size = new System.Drawing.Size(412, 562);
+            this.calcGWAYear.TabIndex = 8;
+            this.calcGWAYear.TabStop = false;
+            this.calcGWAYear.Text = "GWA for one Academic Year 👇";
+            this.calcGWAYear.Enter += new System.EventHandler(this.calcGWAYear_Enter);
             // 
             // Form1
             // 
@@ -199,11 +230,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1323, 700);
+            this.Controls.Add(this.calcGWAYear);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.calcGWAPanel);
-            this.Controls.Add(this.calcGWATotalPanel);
-            this.Controls.Add(this.title);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -217,19 +249,21 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label title;
-        private System.Windows.Forms.Panel calcGWATotalPanel;
         private System.Windows.Forms.TextBox txtBoxUnit;
         private System.Windows.Forms.TextBox txtBoxGrade;
         private System.Windows.Forms.TextBox txtBoxSubject;
-        private System.Windows.Forms.Panel calcGWAPanel;
+        private System.Windows.Forms.TextBox displayGWA;
         private System.Windows.Forms.Button addSubjButton;
+        private System.Windows.Forms.Button clearSubButton;
         private System.Windows.Forms.Button calcGWAButton;
+        private System.Windows.Forms.Button clrAllButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button clearSubButton;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel calcGWAPanel;
+        private System.Windows.Forms.GroupBox calcGWAYear;
+        
     }
 }
 
