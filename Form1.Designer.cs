@@ -42,7 +42,17 @@
             this.addSubjButton = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.calcGWAYear = new System.Windows.Forms.GroupBox();
+            this.lblAcadYear = new System.Windows.Forms.Label();
+            this.lblGWAFrstSem = new System.Windows.Forms.Label();
+            this.lblGWAScndSem = new System.Windows.Forms.Label();
+            this.clrAllGWAYearButton = new System.Windows.Forms.Button();
+            this.calcGWAYearButton = new System.Windows.Forms.Button();
+            this.displayGWAYear = new System.Windows.Forms.TextBox();
+            this.txtBoxGWAScndSem = new System.Windows.Forms.TextBox();
+            this.txtBoxGWAFrstSem = new System.Windows.Forms.TextBox();
+            this.txtBoxYear = new System.Windows.Forms.TextBox();
             this.calcGWAPanel.SuspendLayout();
+            this.calcGWAYear.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBoxUnit
@@ -55,7 +65,6 @@
             this.txtBoxUnit.Size = new System.Drawing.Size(188, 30);
             this.txtBoxUnit.TabIndex = 3;
             this.txtBoxUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBoxUnit.TextChanged += new System.EventHandler(this.txtBoxUnit_TextChanged);
             this.txtBoxUnit.Enter += new System.EventHandler(this.txtBoxUnit_Enter);
             this.txtBoxUnit.Leave += new System.EventHandler(this.txtBoxUnit_Leave);
             // 
@@ -69,7 +78,6 @@
             this.txtBoxGrade.Size = new System.Drawing.Size(188, 30);
             this.txtBoxGrade.TabIndex = 4;
             this.txtBoxGrade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBoxGrade.TextChanged += new System.EventHandler(this.txtBoxGrade_TextChanged);
             this.txtBoxGrade.Enter += new System.EventHandler(this.txtBoxGrade_Enter);
             this.txtBoxGrade.Leave += new System.EventHandler(this.txtBoxGrade_Leave);
             // 
@@ -83,7 +91,6 @@
             this.txtBoxSubject.Size = new System.Drawing.Size(188, 30);
             this.txtBoxSubject.TabIndex = 5;
             this.txtBoxSubject.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtBoxSubject.TextChanged += new System.EventHandler(this.txtBoxSubject_TextChanged);
             this.txtBoxSubject.Enter += new System.EventHandler(this.txtBoxSubject_Enter);
             this.txtBoxSubject.Leave += new System.EventHandler(this.txtBoxSubject_Leave);
             // 
@@ -106,7 +113,6 @@
             this.calcGWAPanel.Name = "calcGWAPanel";
             this.calcGWAPanel.Size = new System.Drawing.Size(823, 555);
             this.calcGWAPanel.TabIndex = 6;
-            this.calcGWAPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.calcGWAPanel_Paint);
             // 
             // clrAllButton
             // 
@@ -133,7 +139,6 @@
             this.displayGWA.Size = new System.Drawing.Size(284, 30);
             this.displayGWA.TabIndex = 12;
             this.displayGWA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.displayGWA.TextChanged += new System.EventHandler(this.displayGWA_TextChanged);
             // 
             // clearSubButton
             // 
@@ -151,9 +156,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(522, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 25);
+            this.label3.Size = new System.Drawing.Size(71, 25);
             this.label3.TabIndex = 10;
             this.label3.Text = "Grade";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,25 +167,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(313, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 25);
+            this.label2.Size = new System.Drawing.Size(50, 25);
             this.label2.TabIndex = 9;
             this.label2.Text = "Unit";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(79, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 25);
+            this.label1.Size = new System.Drawing.Size(85, 25);
             this.label1.TabIndex = 8;
             this.label1.Text = "Subject";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // calcGWAButton
             // 
-            this.calcGWAButton.BackColor = System.Drawing.Color.Chartreuse;
+            this.calcGWAButton.BackColor = System.Drawing.Color.Lime;
             this.calcGWAButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.calcGWAButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calcGWAButton.Location = new System.Drawing.Point(214, 503);
@@ -216,13 +224,120 @@
             // calcGWAYear
             // 
             this.calcGWAYear.BackColor = System.Drawing.Color.White;
+            this.calcGWAYear.Controls.Add(this.lblAcadYear);
+            this.calcGWAYear.Controls.Add(this.lblGWAFrstSem);
+            this.calcGWAYear.Controls.Add(this.lblGWAScndSem);
+            this.calcGWAYear.Controls.Add(this.clrAllGWAYearButton);
+            this.calcGWAYear.Controls.Add(this.calcGWAYearButton);
+            this.calcGWAYear.Controls.Add(this.displayGWAYear);
+            this.calcGWAYear.Controls.Add(this.txtBoxGWAScndSem);
+            this.calcGWAYear.Controls.Add(this.txtBoxGWAFrstSem);
+            this.calcGWAYear.Controls.Add(this.txtBoxYear);
             this.calcGWAYear.Location = new System.Drawing.Point(880, 114);
             this.calcGWAYear.Name = "calcGWAYear";
             this.calcGWAYear.Size = new System.Drawing.Size(412, 562);
             this.calcGWAYear.TabIndex = 8;
             this.calcGWAYear.TabStop = false;
-            this.calcGWAYear.Text = "GWA for one Academic Year 👇";
-            this.calcGWAYear.Enter += new System.EventHandler(this.calcGWAYear_Enter);
+            this.calcGWAYear.Text = "GWA for One Academic Year 👇";
+            // 
+            // lblAcadYear
+            // 
+            this.lblAcadYear.AutoSize = true;
+            this.lblAcadYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcadYear.Location = new System.Drawing.Point(20, 78);
+            this.lblAcadYear.Name = "lblAcadYear";
+            this.lblAcadYear.Size = new System.Drawing.Size(253, 18);
+            this.lblAcadYear.TabIndex = 18;
+            this.lblAcadYear.Text = "Academic Year (e.g. 2024-2025):";
+            // 
+            // lblGWAFrstSem
+            // 
+            this.lblGWAFrstSem.AutoSize = true;
+            this.lblGWAFrstSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGWAFrstSem.Location = new System.Drawing.Point(20, 195);
+            this.lblGWAFrstSem.Name = "lblGWAFrstSem";
+            this.lblGWAFrstSem.Size = new System.Drawing.Size(290, 18);
+            this.lblGWAFrstSem.TabIndex = 17;
+            this.lblGWAFrstSem.Text = "GWA For First Semester (e.g. 3.125):";
+            // 
+            // lblGWAScndSem
+            // 
+            this.lblGWAScndSem.AutoSize = true;
+            this.lblGWAScndSem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGWAScndSem.Location = new System.Drawing.Point(19, 316);
+            this.lblGWAScndSem.Name = "lblGWAScndSem";
+            this.lblGWAScndSem.Size = new System.Drawing.Size(318, 18);
+            this.lblGWAScndSem.TabIndex = 16;
+            this.lblGWAScndSem.Text = "GWA For Second Semester (e.g. 3.125): ";
+            // 
+            // clrAllGWAYearButton
+            // 
+            this.clrAllGWAYearButton.BackColor = System.Drawing.Color.Red;
+            this.clrAllGWAYearButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clrAllGWAYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clrAllGWAYearButton.Location = new System.Drawing.Point(242, 468);
+            this.clrAllGWAYearButton.Name = "clrAllGWAYearButton";
+            this.clrAllGWAYearButton.Size = new System.Drawing.Size(144, 38);
+            this.clrAllGWAYearButton.TabIndex = 15;
+            this.clrAllGWAYearButton.Text = "CLEAR";
+            this.clrAllGWAYearButton.UseVisualStyleBackColor = false;
+            this.clrAllGWAYearButton.Click += new System.EventHandler(this.clrAllGWAYearButton_Click);
+            // 
+            // calcGWAYearButton
+            // 
+            this.calcGWAYearButton.BackColor = System.Drawing.Color.Lime;
+            this.calcGWAYearButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.calcGWAYearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calcGWAYearButton.Location = new System.Drawing.Point(22, 468);
+            this.calcGWAYearButton.Name = "calcGWAYearButton";
+            this.calcGWAYearButton.Size = new System.Drawing.Size(146, 38);
+            this.calcGWAYearButton.TabIndex = 14;
+            this.calcGWAYearButton.Text = "Calculate GWA";
+            this.calcGWAYearButton.UseVisualStyleBackColor = false;
+            this.calcGWAYearButton.Click += new System.EventHandler(this.calcGWAYearButton_Click);
+            // 
+            // displayGWAYear
+            // 
+            this.displayGWAYear.BackColor = System.Drawing.Color.White;
+            this.displayGWAYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.displayGWAYear.Cursor = System.Windows.Forms.Cursors.Default;
+            this.displayGWAYear.ForeColor = System.Drawing.Color.Black;
+            this.displayGWAYear.Location = new System.Drawing.Point(24, 518);
+            this.displayGWAYear.Name = "displayGWAYear";
+            this.displayGWAYear.ReadOnly = true;
+            this.displayGWAYear.Size = new System.Drawing.Size(362, 30);
+            this.displayGWAYear.TabIndex = 3;
+            this.displayGWAYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBoxGWAScndSem
+            // 
+            this.txtBoxGWAScndSem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxGWAScndSem.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxGWAScndSem.Location = new System.Drawing.Point(24, 342);
+            this.txtBoxGWAScndSem.Name = "txtBoxGWAScndSem";
+            this.txtBoxGWAScndSem.Size = new System.Drawing.Size(362, 30);
+            this.txtBoxGWAScndSem.TabIndex = 2;
+            this.txtBoxGWAScndSem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBoxGWAFrstSem
+            // 
+            this.txtBoxGWAFrstSem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxGWAFrstSem.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxGWAFrstSem.Location = new System.Drawing.Point(24, 221);
+            this.txtBoxGWAFrstSem.Name = "txtBoxGWAFrstSem";
+            this.txtBoxGWAFrstSem.Size = new System.Drawing.Size(362, 30);
+            this.txtBoxGWAFrstSem.TabIndex = 1;
+            this.txtBoxGWAFrstSem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBoxYear
+            // 
+            this.txtBoxYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxYear.ForeColor = System.Drawing.Color.Black;
+            this.txtBoxYear.Location = new System.Drawing.Point(24, 104);
+            this.txtBoxYear.Name = "txtBoxYear";
+            this.txtBoxYear.Size = new System.Drawing.Size(362, 30);
+            this.txtBoxYear.TabIndex = 0;
+            this.txtBoxYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
@@ -243,6 +358,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.calcGWAPanel.ResumeLayout(false);
             this.calcGWAPanel.PerformLayout();
+            this.calcGWAYear.ResumeLayout(false);
+            this.calcGWAYear.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,17 +370,25 @@
         private System.Windows.Forms.TextBox txtBoxGrade;
         private System.Windows.Forms.TextBox txtBoxSubject;
         private System.Windows.Forms.TextBox displayGWA;
+        private System.Windows.Forms.TextBox txtBoxGWAFrstSem;
+        private System.Windows.Forms.TextBox txtBoxYear;
+        private System.Windows.Forms.TextBox displayGWAYear;
+        private System.Windows.Forms.TextBox txtBoxGWAScndSem;
         private System.Windows.Forms.Button addSubjButton;
-        private System.Windows.Forms.Button clearSubButton;
         private System.Windows.Forms.Button calcGWAButton;
         private System.Windows.Forms.Button clrAllButton;
+        private System.Windows.Forms.Button clrAllGWAYearButton;
+        private System.Windows.Forms.Button calcGWAYearButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblGWAScndSem;
+        private System.Windows.Forms.Label lblAcadYear;
+        private System.Windows.Forms.Label lblGWAFrstSem;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel calcGWAPanel;
         private System.Windows.Forms.GroupBox calcGWAYear;
-        
+        private System.Windows.Forms.Button clearSubButton;
     }
 }
 
